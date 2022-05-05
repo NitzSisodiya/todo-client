@@ -12,7 +12,7 @@ export const registerUser = (formValues, profile) => {
   formData.append("profile", profile);
   return async (dispatch) => {
     await axios
-      .post(" https://todo-back-end-node.herokuapp.com/signup", formData)
+      .post("https://todo-back-end-node.herokuapp.com/signup", formData)
       .then((res) => {
         localStorage.setItem("Token", res.data.token);
         localStorage.setItem("id", res.data.id);
@@ -33,7 +33,7 @@ export const registerUser = (formValues, profile) => {
 export const getUserProfile = (id) => {
   return async (dispatch) => {
     await axios
-      .get(` https://todo-back-end-node.herokuapp.com/profile/${id}`)
+      .get(`https://todo-back-end-node.herokuapp.com/profile/${id}`)
       .then((response) => {
         const user = response.data;
         dispatch(getUser(user));
@@ -47,7 +47,7 @@ export const getUserProfile = (id) => {
 export const userLogin = (user) => {
   return async (dispatch) => {
     await axios
-      .post(" https://todo-back-end-node.herokuapp.com/login", user)
+      .post("https://todo-back-end-node.herokuapp.com/login", user)
       .then((res) => {
         localStorage.setItem("Token", res.data.token);
         localStorage.setItem("id", res.data.id);
@@ -65,7 +65,7 @@ export const userLogin = (user) => {
 
 export const addUSerTodo = (id, todo) => {
   const options = {
-    url: " https://todo-back-end-node.herokuapp.com/addtodo",
+    url: "https://todo-back-end-node.herokuapp.com/addtodo",
     method: "post",
     headers: {
       Authorization: localStorage.getItem("Token"),
@@ -89,7 +89,7 @@ export const addUSerTodo = (id, todo) => {
 
 export const toDoEdit = (id, todo) => {
   const options = {
-    url: " https://todo-back-end-node.herokuapp.com/edittodo",
+    url: "https://todo-back-end-node.herokuapp.com/edittodo",
     method: "put",
     headers: {
       Authorization: localStorage.getItem("Token"),
@@ -111,7 +111,7 @@ export const toDoEdit = (id, todo) => {
 };
 export const deleteToDo = (id) => {
   const options = {
-    url: ` https://todo-back-end-node.herokuapp.com/deletetodo/${id}`,
+    url: `https://todo-back-end-node.herokuapp.com/deletetodo/${id}`,
     method: "delete",
     headers: {
       Authorization: localStorage.getItem("Token"),
@@ -130,7 +130,7 @@ export const deleteToDo = (id) => {
 
 export const statusOfToDo = (id, userId, status) => {
   const options = {
-    url: " https://todo-back-end-node.herokuapp.com/updatestatus",
+    url: "https://todo-back-end-node.herokuapp.com/updatestatus",
     method: "put",
     headers: {
       Authorization: localStorage.getItem("Token"),
@@ -153,7 +153,7 @@ export const statusOfToDo = (id, userId, status) => {
 
 export const fetchToDoList = (userId) => {
   const options = {
-    url: ` https://todo-back-end-node.herokuapp.com/fetchlist/${userId}`,
+    url: `https://todo-back-end-node.herokuapp.com/fetchlist/${userId}`,
     method: "GET",
     headers: {
       Authorization: localStorage.getItem("Token"),
@@ -173,7 +173,7 @@ export const fetchToDoList = (userId) => {
 
 export const uploadProfile = (id, data) => {
   const options = {
-    url: ` https://todo-back-end-node.herokuapp.com/uploadprofile/${id}`,
+    url: `https://todo-back-end-node.herokuapp.com/uploadprofile/${id}`,
     method: "put",
     headers: {
       Authorization: localStorage.getItem("Token"),
@@ -196,7 +196,7 @@ export const uploadProfile = (id, data) => {
 
 export const removeProfile = (id, data) => {
   const options = {
-    url: ` https://todo-back-end-node.herokuapp.com/uploadprofile/${id}`,
+    url: `https://todo-back-end-node.herokuapp.com/uploadprofile/${id}`,
     method: "put",
     headers: {
       Authorization: localStorage.getItem("Token"),
