@@ -1,7 +1,7 @@
 import axios from "axios";
 import { toast } from "react-toastify";
 
-import { todoSuccess, getUser } from "./actions";
+import { toDoRequest, todoSuccess, getUser } from "./actions";
 
 export const registerUser = (formValues, profile) => {
   var formData = new FormData();
@@ -32,10 +32,12 @@ export const registerUser = (formValues, profile) => {
 
 export const getUserProfile = (id) => {
   return async (dispatch) => {
+    dispatch(toDoRequest());
     await axios
       .get(`https://todo-back-end-node.herokuapp.com/profile/${id}`)
       .then((response) => {
         const user = response.data;
+
         dispatch(getUser(user));
       })
       .catch((error) => {
@@ -163,6 +165,7 @@ export const fetchToDoList = (userId) => {
 
   return async (dispatch) => {
     try {
+      dispatch(toDoRequest());
       const res = await axios(options);
       dispatch(todoSuccess(res.data));
     } catch {
@@ -184,6 +187,7 @@ export const uploadProfile = (id, data) => {
 
   return async (dispatch) => {
     try {
+      dispatch(toDoRequest());
       const res = await axios(options);
       const user = res.data;
       dispatch(getUser(user));

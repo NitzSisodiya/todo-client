@@ -1,6 +1,7 @@
 import {
   ADD_TODO,
   DELETE_TODO,
+  TODO_REQUEST,
   TODO_SUCCESS,
   STATUS,
   EDIT_TODO,
@@ -20,6 +21,12 @@ export const toDoDelete = (id) => {
   return {
     type: DELETE_TODO,
     payload: id,
+  };
+};
+
+export const toDoRequest = (list) => {
+  return {
+    type: TODO_REQUEST,
   };
 };
 
