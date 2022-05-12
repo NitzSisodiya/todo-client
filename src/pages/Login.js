@@ -18,6 +18,7 @@ function LogIn() {
     emailErr: "",
     passwordErr: "",
   });
+  
   useEffect(() => {
     const user = getCookie("myEmail");
     const pswd = getCookie("myPassword");
@@ -33,7 +34,6 @@ function LogIn() {
   const getCookie = (key) => {
     const name = key + "=";
     const arr = document.cookie.split("; ");
-
     for (var i = 0; i < arr.length; i++) {
       var item = arr[i];
       while (item.charAt(0) === " ") {
